@@ -3,151 +3,252 @@
 <head>
 <meta charset="UTF-8" />
 <title>FabLab Oto Dioda!</title>
+
+<style>
+body {
+  font-family: Arial, sans-serif;
+  max-width: 900px;
+  margin: auto;
+  line-height: 1.6;
+}
+
+h1, h2 {
+  margin-top: 40px;
+}
+
+.filters {
+  margin: 20px 0;
+}
+
+.filters button {
+  margin: 5px;
+  padding: 6px 12px;
+  border: 1px solid #444;
+  background: white;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.filters button.active {
+  background: #222;
+  color: white;
+}
+
+.source {
+  margin-bottom: 18px;
+  padding: 10px;
+  border-left: 4px solid #ddd;
+}
+
+.hidden {
+  display: none;
+}
+
+.tags {
+  font-size: 0.8em;
+  color: #777;
+  margin-top: 4px;
+}
+</style>
 </head>
+
 <body>
+
 <h1>Witamy na stronie pracowni elektronicznej Oto Dioda!</h1>
+
 <p>Tutaj będziemy publikować materiały z zajęć, pomoce naukowe i ciekawe źródła.<br><br>
 
   Zapraszamy na nasze zajęcia:<br>
   <b>Przedszkole Elektroniczne</b> dla początkujących, <br>
   i <b>Godziny Otwarte</b>, dla nieco bardziej zaawansowanych - do dalszej nauki, realizowania własnych projektów i naprawiania przyniesionych urządzeń.<br><br>
-  <a href="https://synergia.warszawa.pl/zapisy/">Link do zapisów</a><br>
+
+  <a href="https://synergia.warszawa.pl/zapisy/">Link do zapisów</a><br><br>
 
 </p>
 
-<p>A poniżej kilka wartościowych źródeł do samodzielnej eksploracji, nauki i inspiracji: (<b>pogrubione</b> zostały źródła, które polecamy na początek)</p>
+A poniżej kilka wartościowych źródeł do samodzielnej eksploracji, nauki i inspiracji:<br>
 
-<h2>Strony / czasopisma / inne PL</h2>
+<h2>Źródła</h2>
 
-<p><b>Falstad – symulacje obwodów online, dużo przykładów po klinknięciu w "Schematy"</b><br>
-<b></b><a href="https://www.falstad.com/circuit/" target="_blank">https://www.falstad.com/circuit/</a></b></p>
+<div class="filters">
+  <button onclick="toggleFilter(this,'poczatek')">Na początek</button>
+  <button onclick="toggleFilter(this,'audio')">Audio</button>
+  <button onclick="toggleFilter(this,'syntezatory')">Syntezatory</button>
+  <!-- <button onclick="toggleFilter(this,'symulacje')">Symulacje</button> -->
+  <!-- <button onclick="toggleFilter(this,'projekty')">Projekty</button> -->
+  <button onclick="toggleFilter(this,'naprawy')">Naprawy</button>
+  <button onclick="toggleFilter(this,'pl')">PL</button>
+  <button onclick="toggleFilter(this,'ang')">ANG</button>
+  <button onclick="toggleFilter(this,'youtube')">Youtube</button>
+  <button onclick="clearFilters()">Resetuj</button>
+</div>
 
-<p><b>Forbot – kurs elektroniki dla początkujących</b><br>
-<b></b><a href="https://forbot.pl/blog/kurs-elektroniki-dla-poczatkujacych-id5151" target="_blank">https://forbot.pl/blog/kurs-elektroniki-dla-poczatkujacych-id5151</a></b></p>
+<div class="source" data-tags="poczatek pl">
+  <b>Falstad</b> – symulacje obwodów online<br>
+  <a href="https://www.falstad.com/circuit/" target="_blank">falstad.com</a>
+  <div class="tags">#symulacje #poczatek #pl #teoria</div>
+</div>
 
-<p>Wydawnictwa AVT – Elektronika Praktyczna, Elektronika dla Wszystkich, kity AVT<br>
-<a href="https://ep.com.pl/projekty/strona/1452" target="_blank">https://ep.com.pl/projekty/strona/1452</a></p>
-  
-<h2>Strony / czasopisma / inne ANG</h2>
+<div class="source" data-tags="poczatek pl">
+  <b>Forbot</b> – kurs elektroniki dla początkujących<br>
+  <a href="https://forbot.pl/blog/kurs-elektroniki-dla-poczatkujacych-id5151" target="_blank">forbot.pl</a>
+  <div class="tags">#poczatek #pl #teoria</div>
+</div>
 
-<p><b>All About Circuits</b> – eksperymenty<br>
-<a href="https://www.allaboutcircuits.com/textbook/experiments/" target="_blank">https://www.allaboutcircuits.com/textbook/experiments/</a></p>
+<div class="source" data-tags="projekty pl ">
+  <b>Wydawnictwa AVT</b> – Elektronika Praktyczna, EdW, kity AVT<br>
+  <a href="https://ep.com.pl/projekty/strona/1452" target="_blank">ep.com.pl</a>
+  <div class="tags">#projekty #pl #zaawansowane</div>
+</div>
 
-<p>Make: – biblioteka projektów elektronicznych<br>
-<a href="https://makezine.com/projects?_sft_category=electronics" target="_blank">https://makezine.com/projects?_sft_category=electronics</a></p>
+<div class="source" data-tags="poczatek ang">
+  <b>All About Circuits</b> – eksperymenty i teoria<br>
+  <a href="https://www.allaboutcircuits.com/textbook/experiments/" target="_blank">allaboutcircuits.com</a>
+  <div class="tags">#teoria #poczatek #ang</div>
+</div>
 
-<p>Music From Outer Space – synth DIY, bardzo duża biblioteka układów<br>
-<a href="https://musicfromouterspace.com/index.php?MAINTAB=HOME&VPW=1024&VPH=769" target="_blank">https://musicfromouterspace.com/index.php?MAINTAB=SYNTHDIY&PROJARG=ELECTRONIC_PARTS/LF444CN.php&VPW=1526&VPH=646</a></p>
+<div class="source" data-tags="projekty ang poczatek">
+  <b>Make:</b> – biblioteka projektów elektronicznych<br>
+  <a href="https://makezine.com/projects?_sft_category=electronics" target="_blank">makezine.com</a>
+  <div class="tags">#projekty #ang #poczatek</div>
+</div>
 
-<p>Phet Colorado – symulacje zjawisk fizycznych<br>
-<a href="https://phet.colorado.edu/pl/" target="_blank">https://phet.colorado.edu/pl/</a></p>
+<div class="source" data-tags="syntezatory projekty ang">
+  <b>Music From Outer Space</b> – synth DIY<br>
+  <a href="https://musicfromouterspace.com/" target="_blank">musicfromouterspace.com</a>
+  <div class="tags">#syntezatory #projekty #ang #zaawansowane #audio</div>
+</div>
 
-<p>Technoblogy<br>
-<a href="http://www.technoblogy.com/show?4MGW" target="_blank">http://www.technoblogy.com/show?4MGW</a></p>
+<div class="source" data-tags="poczatek ang ">
+  <b>PhET Colorado</b> – symulacje zjawisk fizycznych<br>
+  <a href="https://phet.colorado.edu/pl/" target="_blank">phet.colorado.edu</a>
+  <div class="tags">#symulacje #poczatek #ang #teoria</div>
+</div>
 
-<!-- <p><b>Generyczne strony elektroniczne</b><br>
-<a href="https://www.circuitbread.com/" target="_blank">https://www.circuitbread.com/</a><br>
-<a href="https://www.build-electronic-circuits.com/" target="_blank">https://www.build-electronic-circuits.com/</a><br>
-<a href="https://www.build-electronic-circuits.com/circuit-ideas/" target="_blank">https://www.build-electronic-circuits.com/circuit-ideas/</a><br>
-<a href="https://www.elprocus.com/simple-electronic-circuits-for-beginners/" target="_blank">https://www.elprocus.com/simple-electronic-circuits-for-beginners/</a><br>
-<a href="https://www.electronics-tutorials.ws/" target="_blank">https://www.electronics-tutorials.ws/</a></p> -->
+<div class="source" data-tags="projekty ang">
+  <b>Technoblogy</b> – projekty i mikrokontrolery<br>
+  <a href="http://www.technoblogy.com/show?4MGW" target="_blank">technoblogy.com</a>
+  <div class="tags">#projekty #ang #zaawansowane</div>
+</div>
 
-<p>Symulacje z wizualami + community circuits<br>
-<a href="https://everycircuit.com/app" target="_blank">https://everycircuit.com/app</a></p>
+<div class="source" data-tags="ang projekty">
+  <b>EveryCircuit</b> – symulacje z wizualami<br>
+  <a href="https://everycircuit.com/app" target="_blank">everycircuit.com</a>
+  <div class="tags">#symulacje #projekty #ang</div>
+</div>
 
-<p><b>Instructables - bardzo duża baza projektów elektronicznych, od prostych do skomplikowanych</b><br>
-<a href="https://www.instructables.com/circuits/projects" target="_blank">https://www.instructables.com/circuits/projects</a></p>
+<div class="source" data-tags="projekty poczatek ang">
+  <b>Instructables</b> – ogromna baza projektów<br>
+  <a href="https://www.instructables.com/circuits/projects" target="_blank">instructables.com</a>
+  <div class="tags">#projekty #poczatek #ang</div>
+</div>
 
-<p>Hackaday<br>
-<a href="https://hackaday.com/" target="_blank">https://hackaday.com/</a></p>
+<div class="source" data-tags="projekty ang">
+  <b>Hackaday</b> – newsy i projekty DIY<br>
+  <a href="https://hackaday.com/" target="_blank">hackaday.com</a>
+  <div class="tags">#projekty #ang #zaawansowane</div>
+</div>
 
+<div class="source" data-tags="syntezatory youtube ang poczatek">
+  <b>Moritz Klein</b> – układy syntezatorów DIY<br>
+  <a href="https://www.youtube.com/@MoritzKlein0" target="_blank">YouTube</a>
+  <div class="tags">#syntezatory #youtube #ang #audio #poczatek</div>
+</div>
 
+<div class="source" data-tags="poczatek youtube ang">
+  <b>Colins Lab</b> – klasyczny kurs elektroniki<br>
+  <a href="https://www.youtube.com/watch?v=7wSTQQEIZbw&list=PLECC9C55893C696A7" target="_blank">YouTube</a>
+  <div class="tags">#poczatek #youtube #ang #teoria</div>
+</div>
 
+<div class="source" data-tags="syntezatory projekty youtube ang">
+  <b>Look Mum No Computer</b> – synth DIY i szalone projekty<br>
+  <a href="https://www.youtube.com/@LOOKMUMNOCOMPUTER" target="_blank">YouTube</a>
+  <div class="tags">#syntezatory #projekty #youtube #ang #audio</div>
+</div>
 
+<div class="source" data-tags="projekty youtube ang">
+  <b>Great Scott</b> – testy modułów i projekty<br>
+  <a href="https://www.youtube.com/@greatscottlab" target="_blank">YouTube</a>
+  <div class="tags">#projekty #youtube #ang</div>
+</div>
 
-<h2>YouTube ANG</h2>
+<div class="source" data-tags="youtube ang zaawansowane">
+  <b>ElectroBoom</b> – elektryka i AC z humorem<br>
+  <a href="https://www.youtube.com/channel/UCJ0-OtVpF0wOKEqT2Z1HEtA" target="_blank">YouTube</a>
+  <div class="tags">#teoria #youtube #ang #zaawansowane</div>
+</div>
 
-<p>Moritz Klein – proste, ale ciekawe układy syntezatorów (DIY) - oscylatory, filtry, generatory obwiedni itp, bardzo dobrze przedstawione i wytłumaczone<br>
-<a href="https://www.youtube.com/@MoritzKlein0" target="_blank">https://www.youtube.com/@MoritzKlein0</a></p>
+<div class="source" data-tags="naprawy youtube pl">
+  <b>DeKompozytor</b> – naprawy sprzętu audio<br>
+  <a href="https://www.youtube.com/@SzaryJelon" target="_blank">YouTube</a>
+  <div class="tags">#naprawy #youtube #pl #audio</div>
+</div>
 
-<p><b>Colins Lab – proste i ciekawe układy, legendarny kanał</b><br>
-<a href="https://www.youtube.com/watch?v=7wSTQQEIZbw&list=PLECC9C55893C696A7" target="_blank">https://www.youtube.com/watch?v=7wSTQQEIZbw&list=PLECC9C55893C696A7</a></p>
+<div class="source" data-tags="naprawy youtube pl zaawansowane">
+  <b>Reduktor Szumu (RS Elektronika)</b><br>
+  <a href="https://www.youtube.com/@RSElektronika/videos" target="_blank">YouTube</a>
+  <div class="tags">#naprawy #youtube #pl #zaawansowane</div>
+</div>
 
-<p>Look Mum No Computer - głównie syntezatory, ale też i inne szalone projekty<br>
-<a href="https://www.youtube.com/@LOOKMUMNOCOMPUTER" target="_blank">https://www.youtube.com/@LOOKMUMNOCOMPUTER</a><br>
-<a href="https://www.lookmumnocomputer.com/projects" target="_blank">https://www.lookmumnocomputer.com/projects</a></p>
+<div class="source" data-tags="poczatek youtube pl">
+  <b>ElektroPrzewodnik</b><br>
+  <a href="https://www.youtube.com/@ElektroPrzewodnik/videos" target="_blank">YouTube</a>
+  <div class="tags">#poczatek #youtube #pl #teoria</div>
+</div>
 
-<p>Great Scott – elektronika użytkowa, testy urządzeń i modułów, bardzo przejrzyście<br>
-<a href="https://www.youtube.com/@greatscottlab" target="_blank">https://www.youtube.com/@greatscottlab</a></p>
+<div class="source" data-tags="youtube pl">
+  <b>Piotr Górecki</b><br>
+  <a href="https://www.youtube.com/@piotrgorecki_ZE/videos" target="_blank">YouTube</a>
+  <div class="tags">#teoria #youtube #pl</div>
+</div>
 
-<p>ElectroBoom – elektryka, AC i wybuchy, z humorkiem<br>
-<a href="https://www.youtube.com/channel/UCJ0-OtVpF0wOKEqT2Z1HEtA" target="_blank">https://www.youtube.com/channel/UCJ0-OtVpF0wOKEqT2Z1HEtA</a></p>
-
-
-  
-<h2>YouTube PL</h2>
-
-<p>DeKompozytor – nieco niepoważnie, naprawy sprzętów audio itd<br>
-<a href="https://www.youtube.com/@SzaryJelon" target="_blank">https://www.youtube.com/@SzaryJelon</a></p>
-
-<p>Reduktor szumu (RS Elektronika) – niekoniecznie na początek<br>
-<a href="https://www.youtube.com/@RSElektronika/videos" target="_blank">https://www.youtube.com/@RSElektronika/videos</a></p>
-
-<p>ElektroPrzewodnik<br>
-<a href="https://www.youtube.com/@ElektroPrzewodnik/videos" target="_blank">https://www.youtube.com/@ElektroPrzewodnik/videos</a></p>
-
-<p>Piotr Górecki<br>
-<a href="https://www.youtube.com/@piotrgorecki_ZE/videos" target="_blank">https://www.youtube.com/@piotrgorecki_ZE/videos</a></p>
-
-<p>Elektron<br>
-<a href="https://www.youtube.com/@ELEKTRON1" target="_blank">https://www.youtube.com/@ELEKTRON1</a></p>
-
-  
-<h2>Strony / czasopisma / inne ANG</h2>
-
-<p><b>All About Circuits</b> – eksperymenty<br>
-<a href="https://www.allaboutcircuits.com/textbook/experiments/" target="_blank">https://www.allaboutcircuits.com/textbook/experiments/</a></p>
-
-<p>Make: – biblioteka projektów elektronicznych<br>
-<a href="https://makezine.com/projects?_sft_category=electronics" target="_blank">https://makezine.com/projects?_sft_category=electronics</a></p>
-
-<p>Music From Outer Space – synth DIY, bardzo duża biblioteka układów<br>
-<a href="https://musicfromouterspace.com/index.php?MAINTAB=HOME&VPW=1024&VPH=769" target="_blank">https://musicfromouterspace.com/index.php?MAINTAB=SYNTHDIY&PROJARG=ELECTRONIC_PARTS/LF444CN.php&VPW=1526&VPH=646</a></p>
-
-<p>Phet Colorado – symulacje zjawisk fizycznych<br>
-<a href="https://phet.colorado.edu/pl/" target="_blank">https://phet.colorado.edu/pl/</a></p>
-
-<p>Technoblogy<br>
-<a href="http://www.technoblogy.com/show?4MGW" target="_blank">http://www.technoblogy.com/show?4MGW</a></p>
-
-<!-- <p><b>Generyczne strony elektroniczne</b><br>
-<a href="https://www.circuitbread.com/" target="_blank">https://www.circuitbread.com/</a><br>
-<a href="https://www.build-electronic-circuits.com/" target="_blank">https://www.build-electronic-circuits.com/</a><br>
-<a href="https://www.build-electronic-circuits.com/circuit-ideas/" target="_blank">https://www.build-electronic-circuits.com/circuit-ideas/</a><br>
-<a href="https://www.elprocus.com/simple-electronic-circuits-for-beginners/" target="_blank">https://www.elprocus.com/simple-electronic-circuits-for-beginners/</a><br>
-<a href="https://www.electronics-tutorials.ws/" target="_blank">https://www.electronics-tutorials.ws/</a></p> -->
-
-<p>Symulacje z wizualami + community circuits<br>
-<a href="https://everycircuit.com/app" target="_blank">https://everycircuit.com/app</a></p>
-
-<p><b>Instructables - bardzo duża baza projektów elektronicznych, od prostych do skomplikowanych</b><br>
-<a href="https://www.instructables.com/circuits/projects" target="_blank">https://www.instructables.com/circuits/projects</a></p>
-
-<p>Hackaday<br>
-<a href="https://hackaday.com/" target="_blank">https://hackaday.com/</a></p>
+<div class="source" data-tags="projekty youtube pl">
+  <b>Elektron</b><br>
+  <a href="https://www.youtube.com/@ELEKTRON1" target="_blank">YouTube</a>
+  <div class="tags">#projekty #youtube #pl</div>
+</div>
 
 
-<h2>Strony / czasopisma / inne PL</h2>
 
-<p><b>Falstad – symulacje obwodów online, dużo przykładów po klinknięciu w "Schematy"</b><br>
-<b></b><a href="https://www.falstad.com/circuit/" target="_blank">https://www.falstad.com/circuit/</a></b></p>
+<script>
+let activeFilters = [];
 
-<p><b>Forbot – kurs elektroniki dla początkujących</b><br>
-<b></b><a href="https://forbot.pl/blog/kurs-elektroniki-dla-poczatkujacych-id5151" target="_blank">https://forbot.pl/blog/kurs-elektroniki-dla-poczatkujacych-id5151</a></b></p>
+function toggleFilter(button, tag) {
+  if (activeFilters.includes(tag)) {
+    activeFilters = activeFilters.filter(t => t !== tag);
+    button.classList.remove("active");
+  } else {
+    activeFilters.push(tag);
+    button.classList.add("active");
+  }
+  applyFilters();
+}
 
-<p>Wydawnictwa AVT – Elektronika Praktyczna, Elektronika dla Wszystkich, kity AVT<br>
-<a href="https://ep.com.pl/projekty/strona/1452" target="_blank">https://ep.com.pl/projekty/strona/1452</a></p>
+function applyFilters() {
+  let sources = document.querySelectorAll(".source");
 
-  
+  sources.forEach(source => {
+    let tags = source.getAttribute("data-tags");
+
+    let show = activeFilters.every(tag => tags.includes(tag));
+
+    if (activeFilters.length === 0 || show) {
+      source.classList.remove("hidden");
+    } else {
+      source.classList.add("hidden");
+    }
+  });
+}
+
+function clearFilters() {
+  activeFilters = [];
+  document.querySelectorAll(".filters button").forEach(btn => {
+    btn.classList.remove("active");
+  });
+  applyFilters();
+}
+</script>
+
 </body>
 </html>
