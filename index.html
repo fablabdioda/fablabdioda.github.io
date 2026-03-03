@@ -69,7 +69,7 @@ h1, h2 {
 <h1>Witamy na stronie pracowni elektronicznej Oto Dioda!</h1>
 
 <p>
-T utaj będziemy publikować materiały z zajęć, pomoce naukowe i ciekawe źródła.<br><br>
+Tutaj będziemy publikować materiały z zajęć, pomoce naukowe i ciekawe źródła.<br><br>
 
 Zapraszamy na nasze zajęcia:<br>
 <b>Przedszkole Elektroniczne</b> dla początkujących,<br>
@@ -83,28 +83,25 @@ i <b>Godziny Otwarte</b> dla bardziej zaawansowanych – realizowanie projektów
 <div class="filters">
 
   <div class="filter-group">
-    <strong>Dziedzina:</strong><br>
-    <button onclick="toggleFilter(this,'audio','main')">Audio</button>
-    <button onclick="toggleFilter(this,'syntezatory','main')">Syntezatory</button>
-    <button onclick="toggleFilter(this,'mikro','main')">Mikrokontrolery</button>
-  </div>
-
-  <div class="filter-group">
-    <strong>Typ:</strong><br>
     <button onclick="toggleFilter(this,'poczatek','main')">Na początek</button>
     <button onclick="toggleFilter(this,'teoria','main')">Teoria</button>
     <button onclick="toggleFilter(this,'układy','main')">Układy</button>
     <button onclick="toggleFilter(this,'projekty','main')">Projekty</button>
     <button onclick="toggleFilter(this,'naprawy','main')">Naprawy</button>
   </div>
+  
+  <div class="filter-group">
+    <!-- <button onclick="toggleFilter(this,'audio','main')">Audio</button> -->
+    <button onclick="toggleFilter(this,'syntezatory','main')">Syntezatory</button>
+    <button onclick="toggleFilter(this,'mikro','main')">Mikrokontrolery</button>
+  </div>
 
   <div class="filter-group">
-    <strong>Język:</strong><br>
     <button onclick="toggleFilter(this,'pl','lang')">PL</button>
     <button onclick="toggleFilter(this,'ang','lang')">ANG</button>
   </div>
 
-  <button onclick="clearFilters()">Reset</button>
+  <button onclick="clearFilters()">Zresetuj filtry</button>
 
 </div>
 
@@ -125,9 +122,70 @@ i <b>Godziny Otwarte</b> dla bardziej zaawansowanych – realizowanie projektów
   <a href="https://ep.com.pl/projekty/strona/1452" target="_blank">ep.com.pl</a>
 </div>
 
-<div class="source" data-tags="syntezatory projekty ang youtube">
+<div class="source" data-tags="poczatek ang">
+  <b>All About Circuits</b> – eksperymenty i teoria<br>
+  <a href="https://www.allaboutcircuits.com/textbook/experiments/" target="_blank">allaboutcircuits.com</a>
+</div>
+
+<div class="source" data-tags="projekty ang poczatek">
+  <b>Make:</b> – biblioteka projektów elektronicznych<br>
+  <a href="https://makezine.com/projects?_sft_category=electronics" target="_blank">makezine.com</a>
+</div>
+
+<div class="source" data-tags="syntezatory projekty ang">
+  <b>Music From Outer Space</b> – synth DIY<br>
+  <a href="https://musicfromouterspace.com/" target="_blank">musicfromouterspace.com</a>
+</div>
+
+<div class="source" data-tags="poczatek ang teoria">
+  <b>PhET Colorado</b> – symulacje zjawisk fizycznych<br>
+  <a href="https://phet.colorado.edu/pl/" target="_blank">phet.colorado.edu</a>
+</div>
+
+<div class="source" data-tags="układy ang mikrokontrolery">
+  <b>Technoblogy</b> – projekty i mikrokontrolery<br>
+  <a href="http://www.technoblogy.com/show?4MGW" target="_blank">technoblogy.com</a>
+</div>
+
+<div class="source" data-tags="ang projekty">
+  <b>EveryCircuit</b> – symulacje z wizualami, podobne do Falstad ale większa baza<br>
+  <a href="https://everycircuit.com/app" target="_blank">everycircuit.com</a>
+</div>
+
+<div class="source" data-tags="projekty poczatek ang">
+  <b>Instructables</b> – ogromna baza projektów<br>
+  <a href="https://www.instructables.com/circuits/projects" target="_blank">instructables.com</a>
+</div>
+
+<div class="source" data-tags="projekty ang">
+  <b>Hackaday</b> – newsy i projekty DIY<br>
+  <a href="https://hackaday.com/" target="_blank">hackaday.com</a>
+</div>
+
+<div class="source" data-tags="syntezatory youtube ang">
   <b>Moritz Klein</b> – układy syntezatorów DIY<br>
   <a href="https://www.youtube.com/@MoritzKlein0" target="_blank">YouTube</a>
+</div>
+
+<div class="source" data-tags="poczatek youtube ang">
+  <b>Colins Lab</b> – klasyczny kurs elektroniki<br>
+  <a href="https://www.youtube.com/watch?v=7wSTQQEIZbw&list=PLECC9C55893C696A7" target="_blank">YouTube</a>
+</div>
+
+<div class="source" data-tags="syntezatory projekty youtube ang">
+  <b>Look Mum No Computer</b> – synth DIY i szalone projekty<br>
+  <a href="https://www.youtube.com/@LOOKMUMNOCOMPUTER" target="_blank">YouTube</a>
+
+</div>
+
+<div class="source" data-tags="projekty youtube ang">
+  <b>Great Scott</b> – projekty, testy urządzeń i modułów, dobrze przedstawione i wytłumaczone<br>
+  <a href="https://www.youtube.com/@greatscottlab" target="_blank">YouTube</a>
+</div>
+
+<div class="source" data-tags="youtube ang zaawansowane">
+  <b>ElectroBoom</b> – elektryka i AC z humorem<br>
+  <a href="https://www.youtube.com/channel/UCJ0-OtVpF0wOKEqT2Z1HEtA" target="_blank">YouTube</a>
 </div>
 
 <div class="source" data-tags="naprawy youtube pl">
@@ -135,6 +193,25 @@ i <b>Godziny Otwarte</b> dla bardziej zaawansowanych – realizowanie projektów
   <a href="https://www.youtube.com/@SzaryJelon" target="_blank">YouTube</a>
 </div>
 
+<div class="source" data-tags="naprawy youtube pl">
+  <b>Reduktor Szumu (RS Elektronika)</b><br>
+  <a href="https://www.youtube.com/@RSElektronika/videos" target="_blank">YouTube</a>
+</div>
+
+<div class="source" data-tags="poczatek youtube pl">
+  <b>ElektroPrzewodnik</b><br>
+  <a href="https://www.youtube.com/@ElektroPrzewodnik/videos" target="_blank">YouTube</a>
+</div>
+
+<div class="source" data-tags="youtube pl">
+  <b>Piotr Górecki</b><br>
+  <a href="https://www.youtube.com/@piotrgorecki_ZE/videos" target="_blank">YouTube</a>
+</div>
+
+<div class="source" data-tags="projekty youtube pl">
+  <b>Elektron</b><br>
+  <a href="https://www.youtube.com/@ELEKTRON1" target="_blank">YouTube</a>
+</div>
 <script>
 
 let activeFilters = {
