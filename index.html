@@ -20,6 +20,10 @@ h1, h2 {
   margin: 20px 0;
 }
 
+.filter-group {
+  margin-bottom: 10px;
+}
+
 .filters button {
   margin: 5px;
   padding: 6px 12px;
@@ -45,9 +49,17 @@ h1, h2 {
 }
 
 .tags {
-  font-size: 0.8em;
-  color: #777;
-  margin-top: 4px;
+  margin-top: 6px;
+}
+
+.tag-badge {
+  display: inline-block;
+  background: #eee;
+  border-radius: 12px;
+  padding: 3px 8px;
+  margin: 2px;
+  font-size: 0.75em;
+  color: #444;
 }
 </style>
 </head>
@@ -56,172 +68,108 @@ h1, h2 {
 
 <h1>Witamy na stronie pracowni elektronicznej Oto Dioda!</h1>
 
-<p>Tutaj będziemy publikować materiały z zajęć, pomoce naukowe i ciekawe źródła.<br><br>
+<p>
+T utaj będziemy publikować materiały z zajęć, pomoce naukowe i ciekawe źródła.<br><br>
 
-  Zapraszamy na nasze zajęcia:<br>
-  <b>Przedszkole Elektroniczne</b> dla początkujących, <br>
-  i <b>Godziny Otwarte</b>, dla nieco bardziej zaawansowanych - do dalszej nauki, realizowania własnych projektów i naprawiania przyniesionych urządzeń.<br><br>
+Zapraszamy na nasze zajęcia:<br>
+<b>Przedszkole Elektroniczne</b> dla początkujących,<br>
+i <b>Godziny Otwarte</b> dla bardziej zaawansowanych – realizowanie projektów i naprawy.<br><br>
 
-  <a href="https://synergia.warszawa.pl/zapisy/">Link do zapisów</a><br><br>
-
+<a href="https://synergia.warszawa.pl/zapisy/" target="_blank">Link do zapisów</a>
 </p>
-
-A poniżej kilka wartościowych źródeł do samodzielnej eksploracji, nauki i inspiracji:<br>
 
 <h2>Źródła</h2>
 
 <div class="filters">
-  <button onclick="toggleFilter(this,'poczatek')">Na początek</button>
-  <button onclick="toggleFilter(this,'audio')">Audio</button>
-  <button onclick="toggleFilter(this,'syntezatory')">Syntezatory</button>
-  <!-- <button onclick="toggleFilter(this,'symulacje')">Symulacje</button> -->
-  <!-- <button onclick="toggleFilter(this,'projekty')">Projekty</button> -->
-  <button onclick="toggleFilter(this,'naprawy')">Naprawy</button>
-  <button onclick="toggleFilter(this,'pl')">PL</button>
-  <button onclick="toggleFilter(this,'ang')">ANG</button>
-  <button onclick="toggleFilter(this,'youtube')">Youtube</button>
-  <button onclick="clearFilters()">Resetuj</button>
+
+  <div class="filter-group">
+    <strong>Dziedzina:</strong><br>
+    <button onclick="toggleFilter(this,'audio','main')">Audio</button>
+    <button onclick="toggleFilter(this,'syntezatory','main')">Syntezatory</button>
+    <button onclick="toggleFilter(this,'mikro','main')">Mikrokontrolery</button>
+  </div>
+
+  <div class="filter-group">
+    <strong>Typ:</strong><br>
+    <button onclick="toggleFilter(this,'poczatek','main')">Na początek</button>
+    <button onclick="toggleFilter(this,'teoria','main')">Teoria</button>
+    <button onclick="toggleFilter(this,'układy','main')">Układy</button>
+    <button onclick="toggleFilter(this,'projekty','main')">Projekty</button>
+    <button onclick="toggleFilter(this,'naprawy','main')">Naprawy</button>
+  </div>
+
+  <div class="filter-group">
+    <strong>Język:</strong><br>
+    <button onclick="toggleFilter(this,'pl','lang')">PL</button>
+    <button onclick="toggleFilter(this,'ang','lang')">ANG</button>
+  </div>
+
+  <button onclick="clearFilters()">Reset</button>
+
 </div>
 
-<div class="source" data-tags="poczatek pl">
+<!-- Źródła -->
+
+<div class="source" data-tags="poczatek pl teoria">
   <b>Falstad</b> – symulacje obwodów online<br>
   <a href="https://www.falstad.com/circuit/" target="_blank">falstad.com</a>
-  <div class="tags">#symulacje #poczatek #pl #teoria</div>
 </div>
 
-<div class="source" data-tags="poczatek pl">
+<div class="source" data-tags="poczatek pl teoria">
   <b>Forbot</b> – kurs elektroniki dla początkujących<br>
   <a href="https://forbot.pl/blog/kurs-elektroniki-dla-poczatkujacych-id5151" target="_blank">forbot.pl</a>
-  <div class="tags">#poczatek #pl #teoria</div>
 </div>
 
-<div class="source" data-tags="projekty pl ">
+<div class="source" data-tags="projekty pl układy">
   <b>Wydawnictwa AVT</b> – Elektronika Praktyczna, EdW, kity AVT<br>
   <a href="https://ep.com.pl/projekty/strona/1452" target="_blank">ep.com.pl</a>
-  <div class="tags">#projekty #pl #zaawansowane</div>
 </div>
 
-<div class="source" data-tags="poczatek ang">
-  <b>All About Circuits</b> – eksperymenty i teoria<br>
-  <a href="https://www.allaboutcircuits.com/textbook/experiments/" target="_blank">allaboutcircuits.com</a>
-  <div class="tags">#teoria #poczatek #ang</div>
-</div>
-
-<div class="source" data-tags="projekty ang poczatek">
-  <b>Make:</b> – biblioteka projektów elektronicznych<br>
-  <a href="https://makezine.com/projects?_sft_category=electronics" target="_blank">makezine.com</a>
-  <div class="tags">#projekty #ang #poczatek</div>
-</div>
-
-<div class="source" data-tags="syntezatory projekty ang">
-  <b>Music From Outer Space</b> – synth DIY<br>
-  <a href="https://musicfromouterspace.com/" target="_blank">musicfromouterspace.com</a>
-  <div class="tags">#syntezatory #projekty #ang #zaawansowane #audio</div>
-</div>
-
-<div class="source" data-tags="poczatek ang ">
-  <b>PhET Colorado</b> – symulacje zjawisk fizycznych<br>
-  <a href="https://phet.colorado.edu/pl/" target="_blank">phet.colorado.edu</a>
-  <div class="tags">#symulacje #poczatek #ang #teoria</div>
-</div>
-
-<div class="source" data-tags="projekty ang">
-  <b>Technoblogy</b> – projekty i mikrokontrolery<br>
-  <a href="http://www.technoblogy.com/show?4MGW" target="_blank">technoblogy.com</a>
-  <div class="tags">#projekty #ang #zaawansowane</div>
-</div>
-
-<div class="source" data-tags="ang projekty">
-  <b>EveryCircuit</b> – symulacje z wizualami<br>
-  <a href="https://everycircuit.com/app" target="_blank">everycircuit.com</a>
-  <div class="tags">#symulacje #projekty #ang</div>
-</div>
-
-<div class="source" data-tags="projekty poczatek ang">
-  <b>Instructables</b> – ogromna baza projektów<br>
-  <a href="https://www.instructables.com/circuits/projects" target="_blank">instructables.com</a>
-  <div class="tags">#projekty #poczatek #ang</div>
-</div>
-
-<div class="source" data-tags="projekty ang">
-  <b>Hackaday</b> – newsy i projekty DIY<br>
-  <a href="https://hackaday.com/" target="_blank">hackaday.com</a>
-  <div class="tags">#projekty #ang #zaawansowane</div>
-</div>
-
-<div class="source" data-tags="syntezatory youtube ang poczatek">
+<div class="source" data-tags="syntezatory projekty ang youtube">
   <b>Moritz Klein</b> – układy syntezatorów DIY<br>
   <a href="https://www.youtube.com/@MoritzKlein0" target="_blank">YouTube</a>
-  <div class="tags">#syntezatory #youtube #ang #audio #poczatek</div>
-</div>
-
-<div class="source" data-tags="poczatek youtube ang">
-  <b>Colins Lab</b> – klasyczny kurs elektroniki<br>
-  <a href="https://www.youtube.com/watch?v=7wSTQQEIZbw&list=PLECC9C55893C696A7" target="_blank">YouTube</a>
-  <div class="tags">#poczatek #youtube #ang #teoria</div>
-</div>
-
-<div class="source" data-tags="syntezatory projekty youtube ang">
-  <b>Look Mum No Computer</b> – synth DIY i szalone projekty<br>
-  <a href="https://www.youtube.com/@LOOKMUMNOCOMPUTER" target="_blank">YouTube</a>
-  <div class="tags">#syntezatory #projekty #youtube #ang #audio</div>
-</div>
-
-<div class="source" data-tags="projekty youtube ang">
-  <b>Great Scott</b> – testy modułów i projekty<br>
-  <a href="https://www.youtube.com/@greatscottlab" target="_blank">YouTube</a>
-  <div class="tags">#projekty #youtube #ang</div>
-</div>
-
-<div class="source" data-tags="youtube ang zaawansowane">
-  <b>ElectroBoom</b> – elektryka i AC z humorem<br>
-  <a href="https://www.youtube.com/channel/UCJ0-OtVpF0wOKEqT2Z1HEtA" target="_blank">YouTube</a>
-  <div class="tags">#teoria #youtube #ang #zaawansowane</div>
 </div>
 
 <div class="source" data-tags="naprawy youtube pl">
   <b>DeKompozytor</b> – naprawy sprzętu audio<br>
   <a href="https://www.youtube.com/@SzaryJelon" target="_blank">YouTube</a>
-  <div class="tags">#naprawy #youtube #pl #audio</div>
 </div>
-
-<div class="source" data-tags="naprawy youtube pl zaawansowane">
-  <b>Reduktor Szumu (RS Elektronika)</b><br>
-  <a href="https://www.youtube.com/@RSElektronika/videos" target="_blank">YouTube</a>
-  <div class="tags">#naprawy #youtube #pl #zaawansowane</div>
-</div>
-
-<div class="source" data-tags="poczatek youtube pl">
-  <b>ElektroPrzewodnik</b><br>
-  <a href="https://www.youtube.com/@ElektroPrzewodnik/videos" target="_blank">YouTube</a>
-  <div class="tags">#poczatek #youtube #pl #teoria</div>
-</div>
-
-<div class="source" data-tags="youtube pl">
-  <b>Piotr Górecki</b><br>
-  <a href="https://www.youtube.com/@piotrgorecki_ZE/videos" target="_blank">YouTube</a>
-  <div class="tags">#teoria #youtube #pl</div>
-</div>
-
-<div class="source" data-tags="projekty youtube pl">
-  <b>Elektron</b><br>
-  <a href="https://www.youtube.com/@ELEKTRON1" target="_blank">YouTube</a>
-  <div class="tags">#projekty #youtube #pl</div>
-</div>
-
-
 
 <script>
-let activeFilters = [];
 
-function toggleFilter(button, tag) {
-  if (activeFilters.includes(tag)) {
-    activeFilters = activeFilters.filter(t => t !== tag);
-    button.classList.remove("active");
+let activeFilters = {
+  main: [],
+  lang: null
+};
+
+function toggleFilter(button, tag, group) {
+
+  if (group === "lang") {
+
+    if (activeFilters.lang === tag) {
+      activeFilters.lang = null;
+      button.classList.remove("active");
+    } else {
+      activeFilters.lang = tag;
+
+      document.querySelectorAll(".filter-group:nth-child(3) button")
+        .forEach(btn => btn.classList.remove("active"));
+
+      button.classList.add("active");
+    }
+
   } else {
-    activeFilters.push(tag);
-    button.classList.add("active");
+
+    if (activeFilters.main.includes(tag)) {
+      activeFilters.main = activeFilters.main.filter(t => t !== tag);
+      button.classList.remove("active");
+    } else {
+      activeFilters.main.push(tag);
+      button.classList.add("active");
+    }
+
   }
+
   applyFilters();
 }
 
@@ -231,9 +179,10 @@ function applyFilters() {
   sources.forEach(source => {
     let tags = source.getAttribute("data-tags");
 
-    let show = activeFilters.every(tag => tags.includes(tag));
+    let matchMain = activeFilters.main.every(tag => tags.includes(tag));
+    let matchLang = !activeFilters.lang || tags.includes(activeFilters.lang);
 
-    if (activeFilters.length === 0 || show) {
+    if (matchMain && matchLang) {
       source.classList.remove("hidden");
     } else {
       source.classList.add("hidden");
@@ -242,12 +191,33 @@ function applyFilters() {
 }
 
 function clearFilters() {
-  activeFilters = [];
-  document.querySelectorAll(".filters button").forEach(btn => {
-    btn.classList.remove("active");
-  });
+  activeFilters = { main: [], lang: null };
+
+  document.querySelectorAll(".filters button")
+    .forEach(btn => btn.classList.remove("active"));
+
   applyFilters();
 }
+
+function generateTagLabels() {
+  document.querySelectorAll(".source").forEach(source => {
+    let tags = source.getAttribute("data-tags").split(" ");
+    let tagDiv = document.createElement("div");
+    tagDiv.classList.add("tags");
+
+    tags.forEach(tag => {
+      let span = document.createElement("span");
+      span.classList.add("tag-badge");
+      span.textContent = tag;
+      tagDiv.appendChild(span);
+    });
+
+    source.appendChild(tagDiv);
+  });
+}
+
+generateTagLabels();
+
 </script>
 
 </body>
